@@ -1,9 +1,11 @@
 require './nameable'
 
 class BaseDec < Nameable
-  def initialize()
+  attr_accessor :nameable
+
+  def initialize(nameable)
     super()
-    @nameable = Nameable.new()
+    @nameable = nameable
   end
 
   def correct_name

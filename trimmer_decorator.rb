@@ -1,6 +1,6 @@
 require './base_decorator'
 
-class TrimmerDecorator
+class TrimmerDecorator < BaseDec
 
   def correct_name
     if @nameable.correct_name.length <= 10
