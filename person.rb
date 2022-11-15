@@ -18,6 +18,3 @@ class Person
     of_age? || @parent_permission
   end
 end
-
-p = Person.new(15, name: 'Mark')
-puts p.age, p.name, p.id
