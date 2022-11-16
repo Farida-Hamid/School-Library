@@ -22,7 +22,7 @@ book1.add_rental(rental1)
 puts book1.rentals.length, rental1.book.title
 
 # Test person and rentals relationship
-person1 = Person.new(25, name: "Person1")
+person1 = Person.new(25, name: 'Person1')
 rental2 = Rental.new('now2')
 puts rental2.date
 
