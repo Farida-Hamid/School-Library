@@ -1,10 +1,12 @@
 require './person'
-require './capitalize_decorator'
-require './trimmer_decorator'
+require './student'
+require './classroom'
 
-person = Person.new(22, name: 'maximilianus')
-person.correct_name
-capitalized_person = CapitalizeDecorator.new(person)
-capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalizedPerson)
-capitalized_trimmed_person.correct_name
+# Make sure that when adding a student to a classroom it also sets the classroom for the student.
+class_a = Classroom.new('A')
+mark = Student.new('s', 13)
+print "Mark's classroom is ", mark.classroom
+class_a.add_student(mark)
+print "\nMark's classroom is ", mark.classroom.label
+# Make sure that when setting the classroom for a student it also adds it to the classrooms' students.
+print "\n", class_a.students, ' are enrolled in class ', class_A.label
