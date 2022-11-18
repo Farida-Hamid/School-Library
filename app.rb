@@ -8,6 +8,7 @@ class App
   def initialize
     @people = []
     @classroom = Classroom.new('Class A')
+    @books = []
   end
 
   def recieve(message)
@@ -43,7 +44,7 @@ class App
     when 3
       create_person
     when 4
-      puts 'create_book'
+      create_book
     when 5
       puts 'create_rental'
     when 6
@@ -76,5 +77,12 @@ class App
     parent_permission = false if permit == 'n'
 
     @people.push(Student.new(@classroom, age, name, parent_permission: parent_permission))
+  end
+
+  def create_book
+    title = recieve('Title: ')
+    author = recieve('Author: ')
+    @books << Book.new(title, author)
+    puts 'Book created successfully!'
   end
 end
