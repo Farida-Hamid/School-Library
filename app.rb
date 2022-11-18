@@ -2,6 +2,7 @@ require './student'
 require './rental'
 require './book'
 require './classroom'
+require './teacher'
 
 class App
   def initialize
@@ -61,6 +62,8 @@ class App
     when 1
       create_student(age, name)
     when 2
+      specialization = recieve('Specialization: ')
+      @people.push(Teacher.new(specialization, name, age))
     else
       puts 'Not a valid option 🤷🏽‍♀️'
     end
