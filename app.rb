@@ -40,7 +40,7 @@ class App
     when 1
       list_books
     when 2
-      puts 'list_peaple'
+      list_people
     when 3
       create_person
     when 4
@@ -86,11 +86,21 @@ class App
     puts 'Book created successfully!'
   end
 
-  def list_books(short)
+  def list_books(short: true)
     if short
       @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
     else
       @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
+    end
+  end
+
+  def list_people(short: true)
+    if short
+      @people.each { |person| puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    else
+      @people.each_with_index do |person, index|
+        puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
   end
 end
