@@ -24,7 +24,26 @@ class App
 
       break if input == 7
 
-      puts 'you chose ', input
+      execute(input)
+    end
+  end
+
+  def execute(option)
+    case option
+    when 1
+      puts 'list_book'
+    when 2
+      puts 'list_peaple'
+    when 3
+      puts 'create_person'
+    when 4
+      puts 'create_book'
+    when 5
+      puts 'create_rental'
+    when 6
+      puts 'list_rentals'
+    else
+      puts 'Not a valid option 🤷🏽‍♀️'
     end
   end
 end
