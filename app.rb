@@ -38,7 +38,7 @@ class App
   def execute(option)
     case option
     when 1
-      puts 'list_book'
+      list_books
     when 2
       puts 'list_peaple'
     when 3
@@ -84,5 +84,13 @@ class App
     author = recieve('Author: ')
     @books << Book.new(title, author)
     puts 'Book created successfully!'
+  end
+
+  def list_books(short)
+    if short
+      @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+    else
+      @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
+    end
   end
 end
