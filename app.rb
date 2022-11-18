@@ -49,7 +49,7 @@ class App
     when 5
       create_rental
     when 6
-      puts 'list_rentals'
+      list_rentals
     else
       puts 'Not a valid option 🤷🏽‍♀️'
     end
@@ -121,5 +121,14 @@ class App
 
     @rentals << Rental.new(date, book, person)
     puts 'Rental created successfully!'
+  end
+
+  def list_rentals
+    id = recieve('ID of a person: ').to_i
+
+    person = @rentals.select { |rental| rental.person.id == id }
+    puts 'Rentals:'
+
+    person.each { |rental| puts "Date: #{rental.date}, Book: #{rental.book.title}, by #{rental.book.author}" }
   end
 end
