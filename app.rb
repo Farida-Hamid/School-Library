@@ -9,6 +9,7 @@ class App
     @people = []
     @classroom = Classroom.new('Class A')
     @books = []
+    @rentals = []
   end
 
   def recieve(message)
@@ -46,7 +47,7 @@ class App
     when 4
       create_book
     when 5
-      puts 'create_rental'
+      create_rental
     when 6
       puts 'list_rentals'
     else
@@ -96,11 +97,29 @@ class App
 
   def list_people(short: true)
     if short
-      @people.each { |person| puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+      @people.each do |person|
+        puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     else
       @people.each_with_index do |person, index|
         puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    list_books(short: false)
+    book_no = recieve('').to_i
+    book = @books[book_no]
+
+    list_people(short: false)
+    person_no = recieve('').to_i
+    person = @people[person_no]
+
+    date = recieve('Date: ')
+
+    @rentals << Rental.new(date, book, person)
+    puts 'Rental created successfully!'
   end
 end
