@@ -101,8 +101,8 @@ class App
         puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     else
-      @people.each_with_index do |person, index|
-        puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      @people.each_with_index do {|person, index|
+        puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"}
       end
     end
   end
